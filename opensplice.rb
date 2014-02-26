@@ -9,7 +9,9 @@ class Opensplice < Formula
   depends_on "gawk"
 
   def patches
-    DATA
+    if ! build.head?
+      DATA
+    end
   end
 
   bottle do
@@ -18,11 +20,13 @@ class Opensplice < Formula
     sha1 "088bd8fe15ddfcf6437eb6b25fd38e4b01b21b3d" => :mavericks
   end
 
+  head 'https://github.com/osrf/opensplice', :using => :git
+
   def install
     ENV.deparallelize
     ENV.no_optimization
     mkdir "build_cmake" do
-      system "cmake", "..", "-DOSPL_BUILD_CONFIG=x86_64.darwin10_clang-dev", *std_cmake_args
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end
