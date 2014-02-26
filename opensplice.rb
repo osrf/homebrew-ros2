@@ -9,9 +9,7 @@ class Opensplice < Formula
   depends_on "gawk"
 
   def patches
-    if MacOS.version >= :mavericks
-      DATA
-    end
+    DATA
   end
 
   bottle do
