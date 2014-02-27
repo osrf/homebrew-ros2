@@ -18,6 +18,7 @@ class Opensplice < Formula
   bottle do
     root_url 'https://github.com/osrf/opensplice/releases/download/6.3.3-1'
     cellar :any
+    revision 1
     sha1 "84aab9ca20dccb786f4d9cc0030547e7b25f67c1" => :mavericks
     sha1 "99bdb8890854eec049bf7ad0dc358777eca93d1c" => :mountain_lion
   end
