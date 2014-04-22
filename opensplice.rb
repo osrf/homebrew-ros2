@@ -2,9 +2,9 @@ require "formula"
 
 class Opensplice < Formula
   homepage "http://www.prismtech.com/opensplice"
-  url "https://github.com/osrf/opensplice/releases/download/6.3.3-1/opensplice.tar.gz"
-  version "6.3.3-1"
-  sha1 "8fcfd2e03169aeb461e9bbe54fee1528feed8265"
+  url "https://github.com/osrf/opensplice/archive/6.3.4.tar.gz"
+  version "6.3.4"
+  sha1 "e8b435482a1615f64749f169e8cb960889044419"
 
   depends_on "cmake" => :build
   depends_on "gawk"
@@ -16,7 +16,7 @@ class Opensplice < Formula
   end
 
   bottle do
-    root_url 'https://github.com/osrf/opensplice/releases/download/6.3.3-1'
+    root_url 'https://github.com/osrf/opensplice/releases/download/6.3.4'
     cellar :any
     revision 1
     sha1 "84aab9ca20dccb786f4d9cc0030547e7b25f67c1" => :mavericks
