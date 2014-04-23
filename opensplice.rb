@@ -9,6 +9,8 @@ class Opensplice < Formula
   depends_on "cmake" => :build
   depends_on "gawk"
 
+  option 'with-debug', 'Builds opensplice in debug mode'
+
   def patches
     if MacOS.version >= :mavericks
       DATA
@@ -29,8 +31,13 @@ class Opensplice < Formula
   def install
     ENV.deparallelize
     ENV.no_optimization
+    args = [".."] + std_cmake_args
+    if build.with? 'debug'
+      args << "-DCMAKE_BUILD_TYPE=Debug"
+      inreplace 'CMakeLists.txt', 'x86_64.darwin10_clang-release', 'x86_64.darwin10_clang-dev'
+    end
     mkdir "build_cmake" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", *args
       system "make", "install"
     end
   end
