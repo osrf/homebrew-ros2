@@ -20,7 +20,7 @@ class Opensplice < Formula
     cellar :any
     revision 1
     sha1 "84aab9ca20dccb786f4d9cc0030547e7b25f67c1" => :mavericks
-    sha1 "99bdb8890854eec049bf7ad0dc358777eca93d1c" => :mountain_lion
+    sha1 "945df81a1ba8f27ad6ec14d46643639d0200f4b5" => :mountain_lion
     sha1 "b86bb548334f632783cc9b0107cd48888eaf9db2" => :lion
   end
 
