@@ -18,7 +18,7 @@ class Opensplice < Formula
   end
 
   bottle do
-    root_url 'https://github.com/osrf/opensplice/releases/download/6.4.0'
+    root_url 'https://github.com/osrf/opensplice/releases/download/6.4.0-0'
     cellar :any
     revision 0
     sha1 "af9b98efe3e10ad0f99b0916c2e9901b28a33edf" => :mavericks
