@@ -8,6 +8,7 @@ class Opensplice < Formula
 
   depends_on "cmake" => :build
   depends_on "gawk"
+  depends_on "java" => :build
 
   option 'with-debug', 'Builds opensplice in debug mode'
 
