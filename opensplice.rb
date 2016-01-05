@@ -216,3 +216,19 @@ index 280a0fd..a93828c 100644
  /* Compiling explicitly w/ C++ 11 support */
  #if defined(OSPL_USE_CXX11)
  #  include <memory>
+diff --git a/setup/makefiles/target-only.mak b/setup/makefiles/target-only.mak
+index 69dc973..b249727 100644
+--- a/setup/makefiles/target-only.mak
++++ b/setup/makefiles/target-only.mak
+@@ -234,8 +234,11 @@ ifneq (,$(or $(findstring win32,$(SPLICE_TARGET)), $(findstring win64,$(SPLICE_T
+   endef
+ else
+   define make_exec_link
+	rm -f $@
+	$(LN) $(call abspath_make3p80_wrapper,$<) $@
++### Hack for OS X 10.11.x (el capitan), this command is allowed to fail on other OS's.
++  -install_name_tool -change libddshts.dylib $(OSPL_HOME)/lib/$(SPLICE_TARGET)/libddshts.dylib $(call abspath_make3p80_wrapper,$<)
++### End hack
+   endef
+ endif
+ ### MAKE_EXEC_LINK ###
