@@ -10,7 +10,7 @@ class Opensplice < Formula
   depends_on "gawk"
   depends_on :java => :build
 
-  option 'with-debug', 'Builds opensplice in debug mode'
+  option "with-debug", "Builds opensplice in debug mode"
 
   def patches
     if MacOS.version >= :mavericks
@@ -19,21 +19,21 @@ class Opensplice < Formula
   end
 
   bottle do
-    root_url 'https://github.com/osrf/opensplice/releases/download/6.4.0-0'
+    root_url "https://github.com/osrf/opensplice/releases/download/6.4.0-0"
     cellar :any
     rebuild 0
     sha256 "fda3a77e4a7c6655383ea0c687ed4d1b3adb2b581c8c3389863bb06e2e9177c5" => :mavericks
   end
 
-  head 'https://github.com/osrf/opensplice', :using => :git
+  head "https://github.com/osrf/opensplice", :using => :git
 
   def install
     ENV.deparallelize
     ENV.no_optimization
     args = [".."] + std_cmake_args
-    if build.with? 'debug'
+    if build.with? "debug"
       args << "-DCMAKE_BUILD_TYPE=Debug"
-      inreplace 'CMakeLists.txt', 'x86_64.darwin10_clang-release', 'x86_64.darwin10_clang-dev'
+      inreplace "CMakeLists.txt", "x86_64.darwin10_clang-release", "x86_64.darwin10_clang-dev"
     end
     mkdir "build_cmake" do
       system "cmake", *args
