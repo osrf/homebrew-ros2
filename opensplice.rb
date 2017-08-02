@@ -12,11 +12,7 @@ class Opensplice < Formula
 
   option "with-debug", "Builds opensplice in debug mode"
 
-  def patches
-    if MacOS.version >= :mavericks
-      DATA
-    end
-  end
+  patch :DATA if MacOS.version >= :mavericks
 
   bottle do
     root_url "https://github.com/osrf/opensplice/releases/download/6.4.0-0"
